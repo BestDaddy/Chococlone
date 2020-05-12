@@ -11,8 +11,13 @@
 |
 */
 
+use App\Category;
+use App\Subcategory;
+
 Route::get('/', function () {
-    return view('welcome');
+    $categories = Category::all();
+    $subcategories = Subcategory::all();
+    return view('welcome',compact('categories', 'subcategories'));
 });
 
 Route::auth();
