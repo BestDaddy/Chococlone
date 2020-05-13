@@ -13,10 +13,14 @@ class Company extends Model
      * @var array
      */
     protected $fillable = [
-        'name', 'description', 'address', 'phone', 'subcategory_id'
+        'name', 'description', 'address', 'phone', 'subcategory_id', 'discount'
     ];
 
     public function subcategory(){
         return $this->belongsTo('App\Subcategory');
     }
-}
+    public function certificats(){
+        return $this->hasMany('App\Certificate');
+    }
+
+}   

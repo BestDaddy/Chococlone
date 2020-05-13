@@ -73,32 +73,6 @@
     </nav>
 
 
-    <nav class="navbar navbar-default navbar-static">
-        <div class="container">
-
-            <div class="collapse navbar-collapse" id="app-navbar-collapse">
-                <!-- Left Side Of Navbar -->
-                <ul class="nav navbar-nav">
-                    @foreach($categories as $category)
-                    <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
-                            {{ $category->name }} <span class="caret"></span>
-                        </a>
-
-                        <ul class="dropdown-menu" role="menu">
-                            @foreach($subcategories as $subcategory)
-                                @if($subcategory->category->id == $category->id)
-                            <li><a href="#"><i class="fa fa-btn fa-sign-out"></i>{{$subcategory->name}}</a></li>
-                                @endif
-                            @endforeach
-                        </ul>
-                    </li>
-                    @endforeach
-                </ul>
-            </div>
-        </div>
-    </nav>
-
     @yield('content')
 
     <!-- JavaScripts -->

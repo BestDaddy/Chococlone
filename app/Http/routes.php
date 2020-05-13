@@ -12,13 +12,38 @@
 */
 
 use App\Category;
+use App\Company;
 use App\Subcategory;
 
 Route::get('/', function () {
     $categories = Category::all();
     $subcategories = Subcategory::all();
-    return view('welcome',compact('categories', 'subcategories'));
+    $companies = Company::all();
+    return view('welcome',compact('categories', 'subcategories', 'companies'));
 });
+
+Route::get('/subcategory/{id}' , function ($id) {
+    $categories = Category::all();
+    $subcategories = Subcategory::all();
+    $companies = Company::query()
+        ->where('subcategory_id', '=', "{$id}")
+        ->get();
+
+    return view('welcome' , compact('categories', 'subcategories', 'companies'));
+
+});
+
+Route::get('/details/{id}' , function ($id) {
+    $categories = Category::all();
+    $subcategories = Subcategory::all();
+    $company = Company::findOrFail($id);
+
+    return view('details' , compact('categories', 'subcategories', 'company'));
+
+});
+
+//Route::resource('', 'CompanyController');
+
 
 Route::auth();
 
