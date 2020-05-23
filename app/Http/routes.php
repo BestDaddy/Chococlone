@@ -33,18 +33,23 @@ Route::get('/subcategory/{id}' , function ($id) {
 
 });
 
-Route::get('/details/{id}' , function ($id) {
-    $categories = Category::all();
-    $subcategories = Subcategory::all();
-    $company = Company::findOrFail($id);
+//Route::get('/details/{id}' , function ($id) {
+//    $categories = Category::all();
+//    $subcategories = Subcategory::all();
+//    $company = Company::findOrFail($id);
+//
+//    return view('details' , compact('categories', 'subcategories', 'company'));
+//
+//});
 
-    return view('details' , compact('categories', 'subcategories', 'company'));
-
-});
-
-//Route::resource('', 'CompanyController');
+Route::resource('/details', 'CompanyController');
 
 
 Route::auth();
+
+Route::group(['middleware'=>'auth'], function (){
+    Route::resource('/user', 'UserOrdersController');
+
+});
 
 Route::get('/home', 'HomeController@index');

@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Category;
 use App\Http\Requests;
+use App\Subcategory;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -24,6 +26,10 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('home');
+        $categories = Category::all();
+        $subcategories = Subcategory::all();
+
+        return view('user/index' , compact('categories', 'subcategories'));
     }
+
 }

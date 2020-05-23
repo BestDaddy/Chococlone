@@ -2,12 +2,20 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ddc8ec3e-7162-4073-8f69-a26ecf8fa104" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/chococlone.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/chococlone.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Company.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Company.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Auth/AuthController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Auth/AuthController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/CompanyController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/CompanyController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/HomeController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/HomeController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/routes.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/routes.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2020_05_12_113057_create_companies_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_05_12_113057_create_companies_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/layouts/app.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/app.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/welcome.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/welcome.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/User.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/app.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/app.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2014_10_12_000000_create_users_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2014_10_12_000000_create_users_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/details.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/details.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/layouts/head.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/head.blade.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -17,7 +25,7 @@
   <component name="ComposerSettings" doNotAsk="true" synchronizationState="SYNCHRONIZE">
     <pharConfigPath>$PROJECT_DIR$/composer.json</pharConfigPath>
     <execution>
-      <executable />
+      <executable path="composer" />
     </execution>
   </component>
   <component name="Git.Settings">
@@ -84,6 +92,7 @@
       <path value="$PROJECT_DIR$/vendor/nikic/php-parser" />
       <path value="$PROJECT_DIR$/vendor/fzaninotto/faker" />
       <path value="$PROJECT_DIR$/vendor/composer" />
+      <path value="$PROJECT_DIR$/vendor/laravelcollective/html" />
     </include_path>
   </component>
   <component name="ProjectId" id="1bnrgZXtVQjw5ZGpMGfkHi6IKaB" />
@@ -97,7 +106,7 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../employment" />
   </component>
   <component name="RunManager">
     <configuration name="phpunit.xml" type="PHPUnitRunConfigurationType" factoryName="PHPUnit">
@@ -118,17 +127,48 @@
       <workItem from="1589278813467" duration="8210000" />
       <workItem from="1589301898746" duration="3300000" />
       <workItem from="1589374376312" duration="2404000" />
-      <workItem from="1589388951080" duration="4233000" />
+      <workItem from="1589388951080" duration="4421000" />
+      <workItem from="1589464376244" duration="358000" />
+      <workItem from="1589475917143" duration="309000" />
+      <workItem from="1590263661125" duration="9506000" />
     </task>
+    <task id="LOCAL-00001" summary="Added working links and details">
+      <created>1589393281720</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1589393281720</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
   </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Added working links and details" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added working links and details" />
+  </component>
   <component name="WindowStateProjectService">
-    <state x="420" y="246" key="FileChooserDialogImpl" timestamp="1589374995445">
+    <state x="370" y="246" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1590267094104">
       <screen x="0" y="0" width="1280" height="984" />
     </state>
-    <state x="420" y="246" key="FileChooserDialogImpl/0.0.1280.984@0.0.1280.984" timestamp="1589374995445" />
+    <state x="370" y="246" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1280.984@0.0.1280.984" timestamp="1590267094104" />
+    <state x="265" y="85" key="CommitChangelistDialog2" timestamp="1589393279316">
+      <screen x="0" y="0" width="1280" height="984" />
+    </state>
+    <state x="265" y="85" key="CommitChangelistDialog2/0.0.1280.984@0.0.1280.984" timestamp="1589393279316" />
+    <state x="417" y="404" key="ComposerInitDialogKey" timestamp="1590271463316">
+      <screen x="0" y="0" width="1280" height="984" />
+    </state>
+    <state x="417" y="404" key="ComposerInitDialogKey/0.0.1280.984@0.0.1280.984" timestamp="1590271463316" />
+    <state x="420" y="246" key="FileChooserDialogImpl" timestamp="1590264146427">
+      <screen x="0" y="0" width="1280" height="984" />
+    </state>
+    <state x="420" y="246" key="FileChooserDialogImpl/0.0.1280.984@0.0.1280.984" timestamp="1590264146427" />
+    <state x="232" y="224" key="Vcs.Push.Dialog.v2" timestamp="1589393291843">
+      <screen x="0" y="0" width="1280" height="984" />
+    </state>
+    <state x="232" y="224" key="Vcs.Push.Dialog.v2/0.0.1280.984@0.0.1280.984" timestamp="1589393291843" />
   </component>
 </project>
