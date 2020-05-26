@@ -29,7 +29,7 @@ class HomeController extends Controller
         $categories = Category::all();
         $subcategories = Subcategory::all();
 
-        return view('user/index' , compact('categories', 'subcategories'));
+        return view('user.index' , compact('categories', 'subcategories'));
     }
 
 }

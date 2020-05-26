@@ -27,7 +27,7 @@
                                     <td>{{$certificate->bought}}</td>
                                     <td>
                                         @if(Auth::user())
-                                            {!! Form::open(['method'=>'POST', 'action'=>'CompanyController@store']) !!}
+                                            {!! Form::open(['method'=>'POST', 'action'=>'UserOrdersController@store']) !!}
                                             {!! Form::hidden ('certificate_id', $certificate->id,  ['class'=>'form-control']) !!}
                                             {!! Form::hidden ('user_id', Auth::user()->id,  ['class'=>'form-control']) !!}
                                             {!! Form::submit ('Buy', ['class'=>'btn btn-block btn-primary btn-md']) !!}

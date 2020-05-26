@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Category;
+use App\Certificate;
 use App\Order;
 use App\Subcategory;
 use Illuminate\Http\Request;
@@ -32,11 +33,12 @@ class UserOrdersController extends Controller
         $user = Auth::user();
         $categories = Category::all();
         $subcategories = Subcategory::all();
-        $orders = Order::query()
-            ->where('user_id', '=', "%{$user->id}%")
-            ->get();
+//        $orders = Order::query()
+//            ->where('user_id', '=', "%{$user->id}%")
+//            ->get();
+        $orders = $user->orders;
 
-        return view('user/cart' , compact('categories', 'subcategories', 'orders'));
+        return view('user.cart' , compact('categories', 'subcategories', 'orders'));
 
     }
 
@@ -60,7 +62,26 @@ class UserOrdersController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $input =$request->all();
+        $input['count'] = 1;
+        $user = Auth::user();
+
+        foreach($user->orders as $order){
+            if($order->certificate_id == $input['certificate_id']){
+                $order->count =  $order->count + 1;
+                $order->save();
+                return redirect('user/');
+            }
+        }
+
+        $user->orders()->create($input);
+        $certificate = Certificate::findOrFail($input['certificate_id']);
+        if($certificate) {
+            $certificate->bought = $certificate->bought + 1;
+            $certificate->save();
+        }
+
+        return redirect('user/');
     }
 
     /**
@@ -106,5 +127,9 @@ class UserOrdersController extends Controller
     public function destroy($id)
     {
         //
+        $order = Order::findOrFail($id);
+
+        $order->delete();
+        return redirect('/user');
     }
 }

@@ -9,7 +9,6 @@
             <table class="table">
                 <thead>
                 <tr>
-                    <th scope="col">ID</th>
                     <th scope="col">Name</th>
                     <th scope="col">Price</th>
                     <th scope="col">Count</th>
@@ -21,12 +20,21 @@
                 @if($orders)
                     @foreach($orders as $order)
                         <tr>
-                            <td>{{$order->id}}</td>
                             <td>{{$order->certificate->name}}</td>
                             <td>{{$order->certificate->price}}</td>
-                            <td>{{$order->count}}</td>
+                            <td>
+                                {!! Form::open(['method'=>'UPDATE', 'action'=>['UserOrdersController@update', $order->id]]) !!}
+                                {!! Form::number ('count', $order->count,  ['class'=>'form-control']) !!}
+                                {!! Form::submit ('Delete', ['class'=>'btn btn-block btn-primary btn-md']) !!}
+                                {!! Form::close() !!}
+                            </td>
                             <td>{{$order->count*$order->certificate->price}}</td>
-                            <td>Delete</td>
+                            <td>
+                                {!! Form::open(['method'=>'DELETE', 'action'=>['UserOrdersController@destroy', $order->id]]) !!}
+                                {!! Form::submit ('Delete', ['class'=>'btn btn-danger']) !!}
+                                {!! Form::close() !!}
+                            </td>
+
                         </tr>
                     @endforeach
                 @endif
