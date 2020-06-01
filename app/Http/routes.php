@@ -51,5 +51,9 @@ Route::group(['middleware'=>'auth'], function (){
     Route::resource('/user', 'UserOrdersController');
 
 });
+Route::group(['middleware'=>'auth'], function (){
+    Route::resource('/admin/company', 'AdminCompaniesController');
+
+});
 
 Route::get('/home', 'HomeController@index');

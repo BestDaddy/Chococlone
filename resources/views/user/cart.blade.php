@@ -20,13 +20,14 @@
                 @if($orders)
                     @foreach($orders as $order)
                         <tr>
-                            <td>{{$order->certificate->name}}</td>
+                            <td><a href="{{ url('/details/'.$order->certificate->company->id) }}">{{$order->certificate->name}}</a></td>
                             <td>{{$order->certificate->price}}</td>
                             <td>
-                                {!! Form::open(['method'=>'UPDATE', 'action'=>['UserOrdersController@update', $order->id]]) !!}
-                                {!! Form::number ('count', $order->count,  ['class'=>'form-control']) !!}
-                                {!! Form::submit ('Delete', ['class'=>'btn btn-block btn-primary btn-md']) !!}
-                                {!! Form::close() !!}
+                                {{$order->count}}
+{{--                                {!! Form::open(['method'=>'UPDATE', 'action'=>['UserOrdersController@update', $order->id]]) !!}--}}
+{{--                                {!! Form::number ('count', $order->count,  ['class'=>'form-control']) !!}--}}
+{{--                                {!! Form::submit ('Delete', ['class'=>'btn btn-block btn-primary btn-md']) !!}--}}
+{{--                                {!! Form::close() !!}--}}
                             </td>
                             <td>{{$order->count*$order->certificate->price}}</td>
                             <td>

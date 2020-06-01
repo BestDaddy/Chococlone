@@ -58,12 +58,17 @@
                     <a href="#zatemnenie">BUY</a>
                 </form>
             </div>
+        <div>
+            <h4>Description:</h4>
+            <h5>{{$company->description}}</h5>
+            <h4>Certificats:</h4>
+            @foreach($company->certificats as $certificate)
+                <h5>{{$certificate->name}}</h5>
+            @endforeach
         </div>
         <br>
         <br>
-        <div id="page">
-            <div id="footer ">
-        </div>
+
     </div>
 @endsection
 
