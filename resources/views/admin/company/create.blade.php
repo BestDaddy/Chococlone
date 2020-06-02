@@ -29,21 +29,29 @@
                             {!! Form::label ('phone', 'Phone:') !!}
                             {!! Form::text ('phone', null, ['class'=>'form-control']) !!}
                         </div>
-{{--                        <div class="form-group">--}}
-{{--                            <select class="form-control" id="categories" name="categories" onchange="return showcategory();">--}}
-{{--                                @foreach($categories as $sel)--}}
-{{--                                    <option value=" {{$sel->id}}"> {{$sel->name}}  {{$sel->id}}</option>--}}
-
-{{--                                @endforeach--}}
-{{--                            </select>--}}
-{{--                        </div>--}}
                         <div class="form-group">
-                            <select name="subcategory_id" id="subcategory_id" class="form-control" >
-                                @foreach($subcategories as $subcategory)
-{{--                                    @if($subcategory->category->id == $sel->id)--}}
-                                        <option value="{{$subcategory->id}} "> {{$subcategory->name}} </option>
-{{--                                    @endif--}}
+                            {!! Form::label ('discount', 'Discount:') !!}
+                            {!! Form::text ('discount', null, ['class'=>'form-control']) !!}
+                        </div>
+                        <div class="form-group">
+                            {!! Form::label ('categories', 'Categories:') !!}
+                            <select class="form-control" id="categories" name="categories" >
+                                <option value="">Select category</option>
+                                @foreach($categories as $key=> $value)
+                                    <option value=" {{$key}}"> {{$value}}</option>
+
                                 @endforeach
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            {!! Form::label ('subcategory_id', 'Subcategories:') !!}
+                            <select name="subcategory_id" id="subcategory_id" class="form-control" >
+                                <option value="">Select subcategory</option>
+{{--                                @foreach($subcategories as $subcategory)--}}
+{{--                                    @if($subcategory->category->id == $sel->id)--}}
+{{--                                        <option value="{{$subcategory->id}} "> {{$subcategory->name}} </option>--}}
+{{--                                    @endif--}}
+{{--                                @endforeach--}}
                             </select>
                         </div>
 
@@ -53,7 +61,7 @@
 {{--                        </div>--}}
 
                         <div class="form-group">
-                            {!! Form::submit ('Create user', ['class'=>'btn btn-primary']) !!}
+                            {!! Form::submit ('Create company', ['class'=>'btn btn-primary']) !!}
                         </div>
                         {!! Form::close() !!}
                     </div>
@@ -61,16 +69,58 @@
             </div>
         </div>
     </div>
-    <script type="text/javascript">
-        function showcategory(){
-            var selectBox = document.getElementById('categories');
-            var userInput = selectBox.options[selectBox.selectedIndex].value ;
-            if (userInput){
-                document.getElementById('subcategory_id').style.visibility = 'visible';
-                {{$apple = 1}}
-            }else{
-                document.getElementById('subcategory_id').style.visibility = 'hidden';
-            }
-            return false;}
+
+
+
+{{--    <script>--}}
+{{--        function showcategory(){--}}
+{{--            var selectBox = document.getElementById('categories');--}}
+{{--            var userInput = selectBox.options[selectBox.selectedIndex].value ;--}}
+{{--            if (userInput){--}}
+{{--                document.getElementById('subcategory_id').style.visibility = 'visible';--}}
+{{--                {{$apple = 1}}--}}
+{{--            }else{--}}
+{{--                document.getElementById('subcategory_id').style.visibility = 'hidden';--}}
+{{--            }--}}
+{{--            return false;}--}}
+{{--    </script>--}}
+@endsection
+
+@section('scripts')
+
+    <script>
+        $(document).ready(function () {
+            $('select[name="categories"]').on('change', function () {
+                var category_id = $(this).val();
+
+                if(category_id){
+                    console.log(category_id);
+                    $.ajax({
+                        url: '{{ url('getSub/' ) }}' + '/' +category_id ,
+                        type: 'GET',
+                        dataType: 'json',
+                        success:function (data) {
+                            console.log(data);
+                            $('select[name="subcategory_id"]').empty();
+                            $.each(data, function (key, value) {
+                                $('select[name="subcategory_id"]')
+                                    .append('<option value="'+key+'">'+value+'</option>')
+
+                            })
+
+                        }
+
+                    });
+
+                } else{
+                    $('select[name="subcategory_id"]').empty();
+                }
+
+            });
+        });
+        // $(document).ready(function () {
+        //     console.log("FUCk eeeee");
+        // });
+
     </script>
 @endsection

@@ -22,6 +22,12 @@ Route::get('/', function () {
     return view('welcome',compact('categories', 'subcategories', 'companies'));
 });
 
+
+Route::get('/getSub/{id}',  function ($id) {
+    $subcategories = Subcategory::query()->where('category_id',"=",  "{$id}")->get()->pluck('name', 'id');
+    return json_encode($subcategories);
+});
+
 Route::get('/subcategory/{id}' , function ($id) {
     $categories = Category::all();
     $subcategories = Subcategory::all();
@@ -51,9 +57,14 @@ Route::group(['middleware'=>'auth'], function (){
     Route::resource('/user', 'UserOrdersController');
 
 });
-Route::group(['middleware'=>'auth'], function (){
+Route::group(['middleware'=>'admin'], function (){
     Route::resource('/admin/company', 'AdminCompaniesController');
+    Route::resource('/admin/company/certificate', 'AdminCertificatesController');
 
 });
 
+//Route::group(['namespace' => 'User', 'prefix' => 'user'], function(){
+//    Route::get('{nickname}/settings', ['as' => 'user.settings', 'uses' => 'SettingsController@index']);
+//    Route::get('{nickname}/profile', ['as' => 'user.profile', 'uses' => 'ProfileController@index']);
+//});
 Route::get('/home', 'HomeController@index');

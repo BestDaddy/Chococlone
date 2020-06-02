@@ -13,10 +13,12 @@
                         </div>
 
                         <div>
-                            <span class="e-deal__link">Купили:
-                                <span class="e-deal__count" data-id="51007"> {{$company->certificats[0]->bought}} </span>
-                                <p class="deals_bold">от {{$company->certificats[0]->price*(1-($company->certificats[0]->discount/100))}}тг.&nbsp;</p>
-                            </span>
+                            @if($company->certificats)
+                                <span class="e-deal__link">Купили:
+                                    <span class="e-deal__count" data-id="51007"> {{$company->certificats[0]->bought}} </span>
+                                    <p class="deals_bold">от {{$company->certificats[0]->price*(1-($company->certificats[0]->discount/100))}}тг.&nbsp;</p>
+                                </span>
+                            @endif
 
 
                         </div>

@@ -3,10 +3,15 @@
   <component name="ChangeListManager">
     <list default="true" id="ddc8ec3e-7162-4073-8f69-a26ecf8fa104" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Kernel.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Kernel.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/AdminCompaniesController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/AdminCompaniesController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/HomeController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/HomeController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/routes.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/routes.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/details.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/details.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/user/cart.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/user/cart.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/User.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/admin/company/create.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/company/create.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/admin/company/show.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/company/show.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/layouts/app.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/app.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/layouts/head.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/head.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/welcome.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/welcome.blade.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -131,7 +136,10 @@
       <workItem from="1590273192084" duration="625000" />
       <workItem from="1590515002767" duration="7065000" />
       <workItem from="1590599622541" duration="2229000" />
-      <workItem from="1591034458389" duration="8097000" />
+      <workItem from="1591034458389" duration="8196000" />
+      <workItem from="1591043470306" duration="770000" />
+      <workItem from="1591111433648" duration="3271000" />
+      <workItem from="1591126558306" duration="8531000" />
     </task>
     <task id="LOCAL-00001" summary="Added working links and details">
       <created>1589393281720</created>
@@ -161,7 +169,14 @@
       <option name="project" value="LOCAL" />
       <updated>1590522746316</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="add to cart">
+      <created>1591042613147</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1591042613147</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -179,29 +194,37 @@
       <screen x="0" y="0" width="1280" height="984" />
     </state>
     <state x="384" y="294" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1280.984@0.0.1280.984" timestamp="1591036638493" />
-    <state x="370" y="246" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1591038842435">
+    <state x="370" y="246" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1591133690757">
       <screen x="0" y="0" width="1280" height="984" />
     </state>
-    <state x="370" y="246" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1280.984@0.0.1280.984" timestamp="1591038842435" />
-    <state x="265" y="85" key="CommitChangelistDialog2" timestamp="1590522745297">
+    <state x="370" y="246" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1280.984@0.0.1280.984" timestamp="1591133690757" />
+    <state x="324" y="146" width="646" height="692" key="#phpunit.xml" timestamp="1591043825714">
       <screen x="0" y="0" width="1280" height="984" />
     </state>
-    <state x="265" y="85" key="CommitChangelistDialog2/0.0.1280.984@0.0.1280.984" timestamp="1590522745297" />
+    <state x="324" y="146" width="646" height="692" key="#phpunit.xml/0.0.1280.984@0.0.1280.984" timestamp="1591043825714" />
+    <state x="265" y="85" key="CommitChangelistDialog2" timestamp="1591042610577">
+      <screen x="0" y="0" width="1280" height="984" />
+    </state>
+    <state x="265" y="85" key="CommitChangelistDialog2/0.0.1280.984@0.0.1280.984" timestamp="1591042610577" />
     <state x="417" y="404" key="ComposerInitDialogKey" timestamp="1590271463316">
       <screen x="0" y="0" width="1280" height="984" />
     </state>
     <state x="417" y="404" key="ComposerInitDialogKey/0.0.1280.984@0.0.1280.984" timestamp="1590271463316" />
-    <state x="420" y="246" key="FileChooserDialogImpl" timestamp="1591034871625">
+    <state x="420" y="246" key="FileChooserDialogImpl" timestamp="1591127073390">
       <screen x="0" y="0" width="1280" height="984" />
     </state>
-    <state x="420" y="246" key="FileChooserDialogImpl/0.0.1280.984@0.0.1280.984" timestamp="1591034871625" />
+    <state x="420" y="246" key="FileChooserDialogImpl/0.0.1280.984@0.0.1280.984" timestamp="1591127073390" />
     <state x="141" y="123" key="SettingsEditor" timestamp="1590273689003">
       <screen x="0" y="0" width="1280" height="984" />
     </state>
     <state x="141" y="123" key="SettingsEditor/0.0.1280.984@0.0.1280.984" timestamp="1590273689003" />
-    <state x="232" y="224" key="Vcs.Push.Dialog.v2" timestamp="1590522749870">
+    <state x="232" y="224" key="Vcs.Push.Dialog.v2" timestamp="1591042642427">
       <screen x="0" y="0" width="1280" height="984" />
     </state>
-    <state x="232" y="224" key="Vcs.Push.Dialog.v2/0.0.1280.984@0.0.1280.984" timestamp="1590522749870" />
+    <state x="232" y="224" key="Vcs.Push.Dialog.v2/0.0.1280.984@0.0.1280.984" timestamp="1591042642427" />
+    <state x="303" y="211" width="672" height="678" key="search.everywhere.popup" timestamp="1591132742811">
+      <screen x="0" y="0" width="1280" height="984" />
+    </state>
+    <state x="303" y="211" width="672" height="678" key="search.everywhere.popup/0.0.1280.984@0.0.1280.984" timestamp="1591132742811" />
   </component>
 </project>

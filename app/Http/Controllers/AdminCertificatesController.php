@@ -2,15 +2,13 @@
 
 namespace App\Http\Controllers;
 
-use App\Category;
 use App\Certificate;
 use App\Company;
-use App\Subcategory;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
 
-class AdminCompaniesController extends Controller
+class AdminCertificatesController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -20,11 +18,6 @@ class AdminCompaniesController extends Controller
     public function index()
     {
         //
-//        $categories = Category::all();
-//        $subcategories = Subcategory::all();
-        $companies = Company::all();
-//        return view('admin.company.index',compact('categories', 'subcategories', 'companies'));
-        return view('admin.company.index',compact( 'companies'));
     }
 
     /**
@@ -35,11 +28,6 @@ class AdminCompaniesController extends Controller
     public function create()
     {
         //
-        $categories = Category::all()->pluck('name', 'id');
-//        $subcategories = Subcategory::lists('name', 'id')->all();
-        $subcategories = Subcategory::all();
-
-        return view('admin.company.create',compact( 'categories','subcategories'));
     }
 
     /**
@@ -51,9 +39,11 @@ class AdminCompaniesController extends Controller
     public function store(Request $request)
     {
         //
-        Company::create($request->all());
-        return redirect('admin/company');
+        $input = $request->all();
+        $input['bought'] = 0;
 
+        Certificate::create($input);
+        return redirect('/admin/company/'.$input['company_id']);
     }
 
     /**
@@ -65,9 +55,6 @@ class AdminCompaniesController extends Controller
     public function show($id)
     {
         //
-        $company = Company::findOrFail($id);
-        return view('admin.company.show',compact( 'company'));
-
     }
 
     /**
@@ -102,9 +89,11 @@ class AdminCompaniesController extends Controller
     public function destroy($id)
     {
         //
+        $certificate = Certificate::findOrFail($id);
+        $company_id = $certificate->company_id;
+        $certificate->delete();
+        return redirect('/admin/company/'.$company_id);
     }
-
-
 
 
 }
