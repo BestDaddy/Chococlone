@@ -22,5 +22,8 @@ class Company extends Model
     public function certificats(){
         return $this->hasMany('App\Certificate');
     }
+    public function reviews(){
+        return $this->hasMany('App\Review');
+    }
 
 }   

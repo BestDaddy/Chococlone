@@ -32,6 +32,10 @@ class User extends Authenticatable
         return $this->hasMany('App\Order');
     }
 
+    public function reviews(){
+        return $this->hasMany('App\Review');
+    }
+
     public function isAdmin(){
         if($this->role->name=="ROLE_ADMIN")
             return true;

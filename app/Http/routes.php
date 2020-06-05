@@ -13,7 +13,11 @@
 
 use App\Category;
 use App\Company;
+use App\Review;
 use App\Subcategory;
+use App\Http\Requests;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 Route::get('/', function () {
     $categories = Category::all();
@@ -68,3 +72,7 @@ Route::group(['middleware'=>'admin'], function (){
 //    Route::get('{nickname}/profile', ['as' => 'user.profile', 'uses' => 'ProfileController@index']);
 //});
 Route::get('/home', 'HomeController@index');
+//Route::post('/details/{company}/AddComment', function (Company $company, Request $request){
+//
+//});
+

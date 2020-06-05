@@ -3,11 +3,13 @@
 namespace App\Http\Controllers;
 
 use App\Category;
+use App\Review;
 use App\Subcategory;
 use App\Company;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
+use Illuminate\Support\Facades\Auth;
 
 class CompanyController extends Controller
 {
@@ -40,6 +42,10 @@ class CompanyController extends Controller
     public function store(Request $request)
     {
         //
+        $input = $request->all();
+        $input['user_id'] = Auth::user()->id;
+        Review::create($input);
+        return redirect('details/'.$input['company_id']);
     }
 
     /**

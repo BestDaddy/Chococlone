@@ -35,9 +35,9 @@
             background: lightgrey;
             text-align: center;
         }
-        div {
-            text-align:center;
-        }
+        /*div {*/
+        /*    text-align:center;*/
+        /*}*/
         div#page {
             border:1px solid grey;
             width:955px;
@@ -51,14 +51,15 @@
             width:930px;
             height:30px;
             margin: auto;
+            text-align:center;
         }
         div#content {
 
             border:2px solid grey;
-            width:700px;
-            margin:10px 7px 175px;
-            min-height:500px;
-            _height:500px
+            width:730px;
+            margin:10px 7px;
+
+            height:300px
         }
 
         div#action {
@@ -67,14 +68,22 @@
             right:11px;
             border:2px solid grey;
             width:150px;
-            margin:auto;
+            margin:-5px 0px 175px;
+            height:300px;
+            text-align:center;
+        }
+        div#info {
+            border:2px solid grey;
+            width:930px;
             height:500px;
+            margin: auto;
         }
         div#footer {
             border:2px solid grey;
             width:750px;
             height:30px;
         }
+
         #zatemnenie {
             background: rgba(102, 102, 102, 0.5);
             width: 100%;
@@ -113,6 +122,10 @@
             cursor:pointer;
         }
         .close:hover {background: #e6e6ff;}
+
+        #Div2 {
+            display: none;
+        }
     </style>
 
 </head>
@@ -199,5 +212,8 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
 {{-- <script src="{{ elixir('js/app.js') }}"></script> --}}
 <script src="{{asset('js/jquery.js')}}"></script>
+
+
+@yield('scripts')
 </body>
 </html>

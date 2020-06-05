@@ -4,8 +4,10 @@ namespace App\Http\Controllers;
 
 use App\Category;
 use App\Http\Requests;
+use App\Review;
 use App\Subcategory;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class HomeController extends Controller
 {
@@ -31,6 +33,12 @@ class HomeController extends Controller
 
         return view('user.index' , compact('categories', 'subcategories'));
     }
-
+//    public function storeComment(Request $request)
+//    {
+//        $input = $request->all();
+//        $input['user_id'] = Auth::user()->id;
+//        Review::create($input);
+//        return redirect('details'.$request['company_id']);
+//    }
 
 }
