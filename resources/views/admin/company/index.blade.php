@@ -21,7 +21,7 @@
                                 <th scope="col">Subcategory</th>
                                 <th scope="col">Created</th>
                                 <th scope="col">Updated</th>
-                                <th scope="col">Show</th>
+                                <th scope="col"></th>
                             </tr>
                             </thead>
                             <tbody>
@@ -33,7 +33,7 @@
                                         <td><a href="{{url('/subcategory/' . $company->subcategory->id)}}">{{$company->subcategory->name}}</a></td>
                                         <td>{{$company->created_at->diffForHumans()}}</td>
                                         <td>{{$company->updated_at->diffForHumans()}}</td>
-                                        <td><a href="{{route('admin.company.show' , $company->id)}}">show</a> </td>
+                                        <td><a href="{{route('admin.company.show' , $company->id)}}">more</a> </td>
                                     </tr>
                                 @endforeach
                             @endif

@@ -151,13 +151,32 @@
         <div class="collapse navbar-collapse" id="app-navbar-collapse">
             <!-- Left Side Of Navbar -->
             <ul class="nav navbar-nav">
-                <li><a href="{{ url('/home') }}">Home</a></li>
+{{--                <li><a href="{{ url('/home') }}">Home</a></li>--}}
+{{--                    <form action="{{ url('/search') }}" method="get" class="form-inline my-2 my-lg-0">--}}
+
+{{--                        <input type="text"  class="form-control" placeholder="Company title, keywords...">--}}
+{{--                        <button type="submit" class="btn btn-primary btn-block text-white btn-search">Search Job</button>--}}
+{{--                    </form>--}}
+
+
+
+
             </ul>
 
             <!-- Right Side Of Navbar -->
             <ul class="nav navbar-nav navbar-right">
+
+
+                <li>
+                    <form action="{{ url('/search') }}" method="get" class="form-inline my-2 my-lg-0">
+                        <input class="form-control form-control-lg" type="text" name="name" placeholder="Search" aria-label="Search">
+                        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+                    </form>
+                </li>
                 <!-- Authentication Links -->
+
                 @if (Auth::guest())
+                    <li><a href="{{ url('/login') }}">Cart 0</a></li>
                     <li><a href="{{ url('/login') }}">Login</a></li>
                     <li><a href="{{ url('/register') }}">Register</a></li>
                 @else
@@ -194,7 +213,7 @@
                         <ul class="dropdown-menu" role="menu">
                             @foreach($subcategories as $subcategory)
                                 @if($subcategory->category->id == $category->id)
-                                    <li><a href="{{ url('/subcategory/' .$subcategory->id) }}"><i class="fa fa-btn fa-sign-out"></i>{{$subcategory->name}}</a></li>
+                                    <li><a href="{{ url('/subcategory/' .$subcategory->id) }}">{{$subcategory->name}}</a></li>
                                 @endif
                             @endforeach
                         </ul>

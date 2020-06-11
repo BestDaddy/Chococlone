@@ -8,20 +8,16 @@
             <div class="col-md-10 col-md-offset-1">
                 <div class="panel panel-default">
                     <div class="panel-heading">
-                        <h1>{{$company->name}}</h1>
+                        <h1>Company: {{$company->name}}</h1>
 
                     </div>
 
                     <div class="panel-body">
-                        <div style="float:right">
-                            <a href="{{route('admin.company.edit' , $company->id)}}">edit</a>
-                        </div>
-                        <br>
+
                         <div class="form-group">
                             <p>{{$company->description}}</p>
                         </div>
-
-                        {!! Form::open(['method'=>'POST', 'action'=>'AdminCertificatesController@store']) !!}
+                        {!! Form::model($certificate, ['method'=>'PATCH', 'action'=>['AdminCertificatesController@update', $certificate->id]]) !!}
                         <div class="form-row">
                             <div class="form-group col-md-6">
                                 {!! Form::label ('name', 'Name:') !!}
@@ -29,16 +25,16 @@
                             </div>
                             <div class="form-group col-md-6">
                                 {!! Form::label ('price', 'Price:') !!}
-                                {!! Form::number ('price', 100, ['min'=>100,'max'=>1000000], ['class'=>'form-control']) !!}
+                                {!! Form::number ('price', null, ['min'=>100,'max'=>1000000], ['class'=>'form-control']) !!}
                             </div>
                             <div class="form-group col-md-6">
                                 {!! Form::label ('discount', 'Discount:') !!}
-                                {!! Form::number ('discount', $company->discount,  ['min'=>1,'max'=>100], ['class'=>'form-control']) !!}
+                                {!! Form::number ('discount', null,  ['min'=>1,'max'=>100], ['class'=>'form-control']) !!}
                             </div>
 
                             <input type="hidden" name="company_id" value="{{$company->id}}">
                             <div class="form-group">
-                                {!! Form::submit ('Add certificate', ['class'=>'btn btn-primary']) !!}
+                                {!! Form::submit ('Update', ['class'=>'btn btn-primary']) !!}
                             </div>
                         </div>
                         {!! Form::close() !!}
@@ -61,7 +57,11 @@
                                         <td>{{$certificate->price}}</td>
                                         <td>{{$certificate->discount}}%</td>
                                         <td>{{$certificate->bought}}</td>
-                                        <td><a href="{{route('admin.company.certificate.edit' , $certificate->id)}}">edit</a></td>
+                                        <td>
+                                            {!! Form::open(['method'=>'DELETE', 'action'=>['AdminCertificatesController@destroy', $certificate->id]]) !!}
+                                            {!! Form::submit ('Delete', ['class'=>'btn btn-danger']) !!}
+                                            {!! Form::close() !!}
+                                        </td>
                                     </tr>
 
                                 @endforeach

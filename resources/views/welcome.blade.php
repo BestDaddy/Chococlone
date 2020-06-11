@@ -9,7 +9,7 @@
                     <span>-{{$company->discount}} %</span>
                     <a href="{{ url('/details/' .$company->id) }}" class="b-main_page__link" title="Смотрите любимое кино дома! Скидка до 40% на 3, 6 или 12 месяцев подписки в онлайн-кинотеатре ivi!">
                         <div>
-                            <img width="310" height="240" alt="Смотрите любимое кино дома! Скидка до 40% на 3, 6 или 12 месяцев подписки в онлайн-кинотеатре ivi!" src="https://www.tibs.org.tw/images/default.jpg" class="e-deal__img">
+                            <img width="310" height="240"  src="https://www.tibs.org.tw/images/default.jpg" class="e-deal__img">
                         </div>
 
                         <div>

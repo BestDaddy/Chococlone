@@ -79,6 +79,9 @@ class AdminCompaniesController extends Controller
     public function edit($id)
     {
         //
+        $categories = Category::all()->pluck('name', 'id');
+        $company = Company::findOrFail($id);
+        return view('admin.company.edit',compact( 'company', 'categories'));
     }
 
     /**
@@ -91,6 +94,9 @@ class AdminCompaniesController extends Controller
     public function update(Request $request, $id)
     {
         //
+        $company = Company::findOrFail($id);
+        $company->update($request->all());
+        return redirect('admin/company/'.$company->id);
     }
 
     /**

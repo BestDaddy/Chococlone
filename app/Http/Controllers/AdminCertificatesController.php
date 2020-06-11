@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Certificate;
 use App\Company;
+use App\Order;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
@@ -66,6 +67,10 @@ class AdminCertificatesController extends Controller
     public function edit($id)
     {
         //
+        $certificate = Certificate::findOrFail($id);
+        $company = $certificate->company;
+
+        return view('admin.company.editCertificate',compact( 'company', 'certificate'));
     }
 
     /**
@@ -78,6 +83,9 @@ class AdminCertificatesController extends Controller
     public function update(Request $request, $id)
     {
         //
+        $certificate = Certificate::findOrFail($id);
+        $certificate->update($request->all());
+        return redirect('admin/company/'.$certificate->company_id);
     }
 
     /**
@@ -90,6 +98,9 @@ class AdminCertificatesController extends Controller
     {
         //
         $certificate = Certificate::findOrFail($id);
+        foreach (Order::query()->where('certificate_id', '=', "{$id}")->get() as $order){
+            $order->delete();
+        }
         $company_id = $certificate->company_id;
         $certificate->delete();
         return redirect('/admin/company/'.$company_id);

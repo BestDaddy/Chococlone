@@ -18,6 +18,7 @@ use App\Subcategory;
 use App\Http\Requests;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Input;
 
 Route::get('/', function () {
     $categories = Category::all();
@@ -75,4 +76,18 @@ Route::get('/home', 'HomeController@index');
 //Route::post('/details/{company}/AddComment', function (Company $company, Request $request){
 //
 //});
+
+Route::get ( '/search', function () {
+
+    $categories = Category::all();
+    $subcategories = Subcategory::all();
+    $name = Input::get ( 'name' );
+
+    $companies = Company::query()
+        ->where('name', 'LIKE', "%{$name}%")
+        ->orWhere('description', 'LIKE', "%{$name}%")
+        ->get();
+    return view('welcome',compact('categories', 'subcategories', 'companies'));
+
+});
 
