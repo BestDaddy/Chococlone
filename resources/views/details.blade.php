@@ -84,7 +84,7 @@
                         {!! Form::open(['method'=>'POST', 'action'=>'CompanyController@store']) !!}
                         <div class="form-group">
                             {!! Form::label ('comment', 'Comment:') !!}
-                            {!! Form::text ('comment', null, ['class'=>'form-control']) !!}
+                            {!! Form::textarea ('comment', null, ['class'=>'form-control', 'rows'=>'2']) !!}
                         </div>
                         <div class="form-group">
                             {!! Form::label ('rating', 'Rating:') !!}
@@ -93,7 +93,7 @@
                         {!! Form::hidden ('company_id', $company->id,  ['class'=>'form-control']) !!}
                         @if(Auth::user())
                         <div class="form-group">
-                            {!! Form::submit ('Add review', ['class'=>'btn btn-primary']) !!}
+                            {!! Form::submit ('Submit', ['class'=>'btn btn-primary']) !!}
                         </div>
                         @else
                             <a href="{{ url('/login') }}">Add review</a>
@@ -104,16 +104,43 @@
 
                         @if($company->reviews)
                             @foreach($company->reviews as $review)
-                                <div>
-                                    <table>
-                                        <tr>
-                                            <td>{{$review->user->name}}  {{$review->created_at->diffForHumans()}}</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Rate: {{$review->rating}}</td>
-                                        </tr>
-                                    </table>
-                                    <h3>{{$review->comment}}</h3>
+                                <div class="media">
+                                    <a class="pull-left" href="#">
+                                        <img height="64" class="media-object" src="https://thumbs.dreamstime.com/b/default-avatar-profile-icon-vector-user-image-179582665.jpg">
+                                    </a>
+                                    <div class="media-body">
+                                        <h4 class="media-heading">{{$review->user->name}}
+                                            <small>{{$review->created_at->diffForHumans()}}</small>
+                                        </h4>
+                                        <p>{{$review->comment}}</p>
+                                    </div>
+                                    {!! Form::open(['method'=>'POST', 'action'=>'ReviewRepliesController@store']) !!}
+                                        <div class="form-group">
+                                            {!! Form::label ('comment', 'Comment:') !!}
+                                            {!! Form::textarea ('comment', null, ['class'=>'form-control', 'rows'=>'1']) !!}
+                                        </div>
+                                        {!! Form::hidden ('review_id', $review->id,  ['class'=>'form-control']) !!}
+                                        <div class="form-group">
+                                            {!! Form::submit ('Submit', ['class'=>'btn btn-primary']) !!}
+                                        </div>
+                                    {!! Form::close() !!}
+
+                                    @if($review->replies)
+                                        @foreach($review->replies as $reply)
+                                        <div class="media mt-3">
+                                            <a class="pull-left" href="#">
+                                                <img height="64" class="media-object" src="https://thumbs.dreamstime.com/b/default-avatar-profile-icon-vector-user-image-179582665.jpg">
+                                            </a>
+                                            <div class="media-body">
+                                                <h4 class="media-heading">{{$reply->user->name}}
+                                                    <small>{{$reply->created_at->diffForHumans()}}</small>
+                                                </h4>
+                                                <p>{{$reply->comment}}</p>
+                                            </div>
+                                        </div>
+                                        @endforeach
+                                    @endif
+
                                 </div>
                             @endforeach
                         @endif

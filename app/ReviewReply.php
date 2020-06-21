@@ -4,11 +4,12 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Review extends Model
+class ReviewReply extends Model
 {
     //
+
     protected $fillable = [
-        'company_id', 'user_id', 'comment', 'rating'
+        'review_id', 'user_id', 'comment'
     ];
 
     /**
@@ -21,12 +22,8 @@ class Review extends Model
     ];
 
 
-    public function company(){
-        return $this->belongsTo('App\Company');
-    }
-
-    public function replies(){
-        return $this->hasMany('App\ReviewReply');
+    public function review(){
+        return $this->belongsTo('App\Review');
     }
 
     public function user(){

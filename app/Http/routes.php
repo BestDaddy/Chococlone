@@ -60,7 +60,7 @@ Route::auth();
 
 Route::group(['middleware'=>'auth'], function (){
     Route::resource('/user', 'UserOrdersController');
-
+    Route::post('/details/addReply', 'ReviewRepliesController@store');
 });
 Route::group(['middleware'=>'admin'], function (){
     Route::resource('/admin/company', 'AdminCompaniesController');
