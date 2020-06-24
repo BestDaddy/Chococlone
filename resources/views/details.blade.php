@@ -1,6 +1,12 @@
 @extends('layouts.head')
 
 @section('content')
+    <style>
+        .hide[aria-expanded="true"]{
+            display: none;
+        }
+    </style>
+
     <div class="container">
 
         <div id="page">
@@ -47,9 +53,9 @@
             </div>
             <div id="header">{{$company->name}}</div>
 
-                <div id="content">
+            <div id="content">
 
-                </div>
+            </div>
             <div id="action">
                 <h3>{{$company->certificats[0]->price}}</h3>
 
@@ -57,7 +63,7 @@
                     <a href="#zatemnenie">BUY</a>
                 </form>
             </div>
-            <div class="collapse navbar-collapse" id="app-navbar-collapse">
+            <div  id="app-navbar-collapse">
                 <!-- Left Side Of Navbar -->
                 <ul class="nav navbar-nav">
                     <li>
@@ -69,7 +75,7 @@
                 </ul>
             </div>
             <div id="info">
-                <div id="Div1">
+                <div id="Div2">
                     <div class="form-group">
                         <h4>Description:</h4>
                         <h5>{{$company->description}}</h5>
@@ -79,9 +85,9 @@
                         @endforeach
                     </div>
                 </div>
-                <div id="Div2">
+                <div id="Div1">
                     <div class="panel-body">
-                        {!! Form::open(['method'=>'POST', 'action'=>'CompanyController@store']) !!}
+                        {!! Form::open(['method'=>'POST', 'action'=>'CompanyReviewsController@store']) !!}
                         <div class="form-group">
                             {!! Form::label ('comment', 'Comment:') !!}
                             {!! Form::textarea ('comment', null, ['class'=>'form-control', 'rows'=>'2']) !!}
@@ -91,56 +97,53 @@
                             {!! Form::number ('rating', 1, ['min'=>1,'max'=>5],['class'=>'form-control']) !!}
                         </div>
                         {!! Form::hidden ('company_id', $company->id,  ['class'=>'form-control']) !!}
-                        @if(Auth::user())
                         <div class="form-group">
                             {!! Form::submit ('Submit', ['class'=>'btn btn-primary']) !!}
                         </div>
-                        @else
-                            <a href="{{ url('/login') }}">Add review</a>
-                        @endif
                         {!! Form::close() !!}
                     </div>
                     <div class="panel-body">
 
                         @if($company->reviews)
                             @foreach($company->reviews as $review)
-                                <div class="media">
-                                    <a class="pull-left" href="#">
+                                <div class="container">
+                                    <div class="media mb-2">
                                         <img height="64" class="media-object" src="https://thumbs.dreamstime.com/b/default-avatar-profile-icon-vector-user-image-179582665.jpg">
-                                    </a>
-                                    <div class="media-body">
-                                        <h4 class="media-heading">{{$review->user->name}}
-                                            <small>{{$review->created_at->diffForHumans()}}</small>
-                                        </h4>
-                                        <p>{{$review->comment}}</p>
-                                    </div>
-                                    {!! Form::open(['method'=>'POST', 'action'=>'ReviewRepliesController@store']) !!}
-                                        <div class="form-group">
-                                            {!! Form::label ('comment', 'Comment:') !!}
-                                            {!! Form::textarea ('comment', null, ['class'=>'form-control', 'rows'=>'1']) !!}
-                                        </div>
-                                        {!! Form::hidden ('review_id', $review->id,  ['class'=>'form-control']) !!}
-                                        <div class="form-group">
-                                            {!! Form::submit ('Submit', ['class'=>'btn btn-primary']) !!}
-                                        </div>
-                                    {!! Form::close() !!}
-
-                                    @if($review->replies)
-                                        @foreach($review->replies as $reply)
-                                        <div class="media mt-3">
-                                            <a class="pull-left" href="#">
-                                                <img height="64" class="media-object" src="https://thumbs.dreamstime.com/b/default-avatar-profile-icon-vector-user-image-179582665.jpg">
-                                            </a>
-                                            <div class="media-body">
-                                                <h4 class="media-heading">{{$reply->user->name}}
-                                                    <small>{{$reply->created_at->diffForHumans()}}</small>
-                                                </h4>
-                                                <p>{{$reply->comment}}</p>
+                                        <div class="media-body">
+                                            <h5>{{$review->user->name}}
+                                                <small>{{$review->created_at->diffForHumans()}}</small>
+                                            </h5>
+                                            <p>{{$review->comment}}</p>
+                                            <button class="btn btn-sm btn-primary hide" type="button" data-toggle="collapse" data-target="#form-toggle{{$review->id}}" aria-expanded="false" aria-controls="form-toggle">Reply</button>
+                                            <div class="collapse" id="form-toggle{{$review->id}}">
+                                                {!! Form::open(['method'=>'POST', 'action'=>'ReviewRepliesController@store']) !!}
+                                                <div class="form-group">
+                                                    {!! Form::label ('comment', 'Comment:') !!}
+                                                    {!! Form::textarea ('comment', null, ['class'=>'form-control', 'rows'=>'1']) !!}
+                                                </div>
+                                                {!! Form::hidden ('review_id', $review->id,  ['class'=>'form-control']) !!}
+                                                <div class="form-group">
+                                                    {!! Form::submit ('Submit', ['class'=>'btn btn-primary']) !!}
+                                                </div>
+                                                {!! Form::close() !!}
                                             </div>
+                                            @if($review->replies)
+                                                @foreach($review->replies as $reply)
+                                                    <div class="media mt-3">
+                                                        <a class="pull-left" href="#">
+                                                            <img height="64" class="media-object" src="https://thumbs.dreamstime.com/b/default-avatar-profile-icon-vector-user-image-179582665.jpg">
+                                                        </a>
+                                                        <div class="media-body">
+                                                            <h4 class="media-heading">{{$reply->user->name}}
+                                                                <small>{{$reply->created_at->diffForHumans()}}</small>
+                                                            </h4>
+                                                            <p>{{$reply->comment}}</p>
+                                                        </div>
+                                                    </div>
+                                                @endforeach
+                                            @endif
                                         </div>
-                                        @endforeach
-                                    @endif
-
+                                    </div>
                                 </div>
                             @endforeach
                         @endif
