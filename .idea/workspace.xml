@@ -2,13 +2,19 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ddc8ec3e-7162-4073-8f69-a26ecf8fa104" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/chococlone.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/chococlone.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/CompanyReviewsController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/CompanyReviewsController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Company.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Company.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/AdminCompaniesController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/AdminCompaniesController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/routes.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/routes.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Subcategory.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Subcategory.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/app.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/app.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/database/migrations/2020_06_05_120925_create_reviews_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_06_05_120925_create_reviews_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/details.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/details.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/layouts/app.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/app.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/layouts/head.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/head.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/welcome.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/welcome.blade.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -20,6 +26,9 @@
     <execution>
       <executable path="composer" />
     </execution>
+  </component>
+  <component name="FavoritesManager">
+    <favorites_list name="chococlone" />
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -86,6 +95,8 @@
       <path value="$PROJECT_DIR$/vendor/fzaninotto/faker" />
       <path value="$PROJECT_DIR$/vendor/composer" />
       <path value="$PROJECT_DIR$/vendor/laravelcollective/html" />
+      <path value="$PROJECT_DIR$/vendor/cocur/slugify" />
+      <path value="$PROJECT_DIR$/vendor/cviebrock/eloquent-sluggable" />
     </include_path>
   </component>
   <component name="ProjectId" id="1bnrgZXtVQjw5ZGpMGfkHi6IKaB" />
@@ -103,13 +114,14 @@
     <property name="settings.editor.selected.configurable" value="settings.github" />
   </component>
   <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\xampp\htdocs\chococlone\screenShots\db" />
+      <recent name="C:\xampp\htdocs\chococlone\screenShots" />
+    </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\xampp\htdocs\chococlone\public\js" />
       <recent name="C:\xampp\htdocs\chococlone\public\css" />
       <recent name="C:\xampp\htdocs\chococlone\resources\views\admin\company" />
-    </key>
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\xampp\htdocs\chococlone\screenShots" />
     </key>
   </component>
   <component name="RunManager">
@@ -153,7 +165,8 @@
       <workItem from="1592760124346" duration="362000" />
       <workItem from="1592766011245" duration="1975000" />
       <workItem from="1592893638478" duration="2394000" />
-      <workItem from="1592984174283" duration="1624000" />
+      <workItem from="1592984174283" duration="1917000" />
+      <workItem from="1593275812789" duration="7581000" />
     </task>
     <task id="LOCAL-00001" summary="Added working links and details">
       <created>1589393281720</created>
@@ -225,7 +238,14 @@
       <option name="project" value="LOCAL" />
       <updated>1592748981680</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="fixs">
+      <created>1592988694825</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1592988694825</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -241,7 +261,8 @@
     <MESSAGE value="Review added" />
     <MESSAGE value="search and edits, fix" />
     <MESSAGE value="rofl commit" />
-    <option name="LAST_COMMIT_MESSAGE" value="rofl commit" />
+    <MESSAGE value="fixs" />
+    <option name="LAST_COMMIT_MESSAGE" value="fixs" />
   </component>
   <component name="WindowStateProjectService">
     <state x="232" y="149" key="#Notifications" timestamp="1591135376931">
@@ -260,10 +281,10 @@
       <screen x="0" y="0" width="1280" height="984" />
     </state>
     <state x="324" y="146" width="646" height="692" key="#phpunit.xml/0.0.1280.984@0.0.1280.984" timestamp="1591043825714" />
-    <state x="265" y="85" key="CommitChangelistDialog2" timestamp="1592748979217">
+    <state x="265" y="85" key="CommitChangelistDialog2" timestamp="1593283618306">
       <screen x="0" y="0" width="1280" height="984" />
     </state>
-    <state x="265" y="85" key="CommitChangelistDialog2/0.0.1280.984@0.0.1280.984" timestamp="1592748979217" />
+    <state x="265" y="85" key="CommitChangelistDialog2/0.0.1280.984@0.0.1280.984" timestamp="1593283618306" />
     <state x="417" y="404" key="ComposerInitDialogKey" timestamp="1590271463316">
       <screen x="0" y="0" width="1280" height="984" />
     </state>
@@ -276,10 +297,10 @@
       <screen x="0" y="0" width="1280" height="984" />
     </state>
     <state x="141" y="123" key="SettingsEditor/0.0.1280.984@0.0.1280.984" timestamp="1590273689003" />
-    <state x="232" y="224" key="Vcs.Push.Dialog.v2" timestamp="1592749010208">
+    <state x="232" y="224" key="Vcs.Push.Dialog.v2" timestamp="1593283677940">
       <screen x="0" y="0" width="1280" height="984" />
     </state>
-    <state x="232" y="224" key="Vcs.Push.Dialog.v2/0.0.1280.984@0.0.1280.984" timestamp="1592749010208" />
+    <state x="232" y="224" key="Vcs.Push.Dialog.v2/0.0.1280.984@0.0.1280.984" timestamp="1593283677940" />
     <state x="296" y="221" key="run.anything.popup" timestamp="1591378966449">
       <screen x="0" y="0" width="1280" height="984" />
     </state>

@@ -5,6 +5,7 @@
     <div class="row">
         <div id="grid">
             @foreach( $companies as $company)
+                @if($company->certificats)
                 <div>
                     <span>-{{$company->discount}} %</span>
                     <a href="{{ url('/details/' .$company->id) }}" class="b-main_page__link" title="Смотрите любимое кино дома! Скидка до 40% на 3, 6 или 12 месяцев подписки в онлайн-кинотеатре ivi!">
@@ -30,8 +31,15 @@
                         </div>
                     </a>
                 </div>
+                @endif
             @endforeach
         </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-3 col-sm-offset-5">
+            {{$companies->render()}}
+        </div>
+
     </div>
 </div>
 @endsection

@@ -3,9 +3,19 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use Cviebrock\EloquentSluggable\SluggableInterface;
+use Cviebrock\EloquentSluggable\SluggableTrait;
 
-class Company extends Model
+class Company extends Model implements SluggableInterface
 {
+
+    use SluggableTrait;
+
+    protected $sluggable = [
+//        'build_from' => 'id',
+//        'save_to' => 'slug',
+        'on_update' =>true,
+    ];
     //
     /**
      * The attributes that are mass assignable.

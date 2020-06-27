@@ -2,15 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use App\Category;
-use App\Certificate;
-use App\Company;
-use App\Subcategory;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
 
-class AdminCompaniesController extends Controller
+class AdminCategoriesController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -20,11 +16,6 @@ class AdminCompaniesController extends Controller
     public function index()
     {
         //
-//        $categories = Category::all();
-//        $subcategories = Subcategory::all();
-        $companies = Company::all();
-//        return view('admin.company.index',compact('categories', 'subcategories', 'companies'));
-        return view('admin.company.index',compact( 'companies'));
     }
 
     /**
@@ -35,11 +26,6 @@ class AdminCompaniesController extends Controller
     public function create()
     {
         //
-        $categories = Category::all()->pluck('name', 'id');
-//        $subcategories = Subcategory::lists('name', 'id')->all();
-        $subcategories = Subcategory::all();
-
-        return view('admin.company.create',compact( 'categories','subcategories'));
     }
 
     /**
@@ -51,9 +37,6 @@ class AdminCompaniesController extends Controller
     public function store(Request $request)
     {
         //
-        $company = Company::create($request->all());
-        return redirect('admin/company/'. $company->id);
-
     }
 
     /**
@@ -65,9 +48,6 @@ class AdminCompaniesController extends Controller
     public function show($id)
     {
         //
-        $company = Company::findOrFail($id);
-        return view('admin.company.show',compact( 'company'));
-
     }
 
     /**
@@ -79,9 +59,6 @@ class AdminCompaniesController extends Controller
     public function edit($id)
     {
         //
-        $categories = Category::all()->pluck('name', 'id');
-        $company = Company::findOrFail($id);
-        return view('admin.company.edit',compact( 'company', 'categories'));
     }
 
     /**
@@ -94,9 +71,6 @@ class AdminCompaniesController extends Controller
     public function update(Request $request, $id)
     {
         //
-        $company = Company::findOrFail($id);
-        $company->update($request->all());
-        return redirect('admin/company/'.$company->id);
     }
 
     /**
@@ -109,8 +83,4 @@ class AdminCompaniesController extends Controller
     {
         //
     }
-
-
-
-
 }

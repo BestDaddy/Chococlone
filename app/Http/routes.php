@@ -23,7 +23,7 @@ use Illuminate\Support\Facades\Input;
 Route::get('/', function () {
     $categories = Category::all();
     $subcategories = Subcategory::all();
-    $companies = Company::all();
+    $companies = Company::paginate(9);
     return view('welcome',compact('categories', 'subcategories', 'companies'));
 });
 
@@ -38,7 +38,7 @@ Route::get('/subcategory/{id}' , function ($id) {
     $subcategories = Subcategory::all();
     $companies = Company::query()
         ->where('subcategory_id', '=', "{$id}")
-        ->get();
+        ->paginate(9);
 
     return view('welcome' , compact('categories', 'subcategories', 'companies'));
 
@@ -87,7 +87,7 @@ Route::get ( '/search', function () {
     $companies = Company::query()
         ->where('name', 'LIKE', "%{$name}%")
         ->orWhere('description', 'LIKE', "%{$name}%")
-        ->get();
+        ->paginate(9);
     return view('welcome',compact('categories', 'subcategories', 'companies'));
 
 });

@@ -19,6 +19,8 @@ class CreateReviewsTable extends Migration
             $table->integer('rating')->unsigned();
             $table->string('comment');
             $table->timestamps();
+
+            $table->foreign('company_id')->refrences('id')->on('companies')->onDelete('cascade');
         });
     }
 

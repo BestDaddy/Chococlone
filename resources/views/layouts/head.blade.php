@@ -176,7 +176,7 @@
                 <div class="dropdown-menu">
                     @foreach($subcategories as $subcategory)
                         @if($subcategory->category->id == $category->id)
-                            <a class="dropdown-item" href="{{ url('/subcategory/' .$subcategory->id) }}">{{$subcategory->name}}</a>
+                            <a class="dropdown-item" href="{{ url('/subcategory/' .$subcategory->id) }}">{{$subcategory->name}} <small>{{count($subcategory->companies)}}</small></a>
                         @endif
                     @endforeach
                 </div>
