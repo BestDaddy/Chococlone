@@ -52,6 +52,11 @@
                         <div class="form-group">
                             {!! Form::submit ('Update company', ['class'=>'btn btn-primary']) !!}
                         </div>
+                        {!! Form::open(['method'=>'DELETE', 'action'=>['AdminCompaniesController@destroy', $company->id]]) !!}
+                        <div class="form-group">
+                            {!! Form::submit ('Delete', ['class'=>'btn btn-danger']) !!}
+                        </div>
+                        {!! Form::close() !!}
                         {!! Form::close() !!}
                     </div>
                 </div>

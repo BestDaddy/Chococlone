@@ -2,14 +2,12 @@
 
 namespace App\Http\Controllers;
 
-use App\Certificate;
-use App\Company;
-use App\Order;
+use App\Subcategory;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
 
-class AdminCertificatesController extends Controller
+class AdminSubcategoriesController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -41,10 +39,8 @@ class AdminCertificatesController extends Controller
     {
         //
         $input = $request->all();
-        $input['bought'] = 0;
-
-        Certificate::create($input);
-        return redirect('/admin/company/'.$input['company_id']);
+        Subcategory::create($input);
+        return redirect('/admin/category/'.$input['category_id']);
     }
 
     /**
@@ -67,10 +63,10 @@ class AdminCertificatesController extends Controller
     public function edit($id)
     {
         //
-        $certificate = Certificate::findOrFail($id);
-        $company = $certificate->company;
+        $subcategory = Subcategory::findOrFail($id);
+        $category = $subcategory->category;
 
-        return view('admin.company.editCertificate',compact( 'company', 'certificate'));
+        return view('admin.category.editSubcategory',compact( 'category', 'subcategory'));
     }
 
     /**
@@ -83,9 +79,6 @@ class AdminCertificatesController extends Controller
     public function update(Request $request, $id)
     {
         //
-        $certificate = Certificate::findOrFail($id);
-        $certificate->update($request->all());
-        return redirect('admin/company/'.$certificate->company_id);
     }
 
     /**
@@ -97,11 +90,10 @@ class AdminCertificatesController extends Controller
     public function destroy($id)
     {
         //
-        $certificate = Certificate::findOrFail($id);
-        $company_id = $certificate->company_id;
-        $certificate->delete();
-        return redirect('/admin/company/'.$company_id);
+        $subcategory = Subcategory::findOrFail($id);
+
+        $category_id = $subcategory->category_id;
+        $subcategory->delete();
+        return redirect('/admin/category/'.$category_id);
     }
-
-
 }

@@ -20,6 +20,7 @@ class CreateReviewRepliesTable extends Migration
             $table->timestamps();
 
             $table->foreign('review_id')->references('id')->on('reviews')->onDelete('cascade');
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
         });
     }
 

@@ -21,6 +21,8 @@ class CreateCompaniesTable extends Migration
             $table->string('phone');
             $table->integer('discount');
             $table->timestamps();
+
+            $table->foreign('subcategory_id')->references('id')->on('subcategories')->onDelete('cascade');
         });
     }
 

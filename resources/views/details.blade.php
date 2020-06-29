@@ -115,6 +115,13 @@
                                             </h5>
                                             <p>{{$review->comment}}</p>
                                             <button class="btn btn-sm btn-primary hide" type="button" data-toggle="collapse" data-target="#form-toggle{{$review->id}}" aria-expanded="false" aria-controls="form-toggle">Reply</button>
+                                            @if($review->user->id == Auth::user()->id)
+                                                {!! Form::open(['method'=>'DELETE', 'action'=>['CompanyReviewsController@destroy', $review->id]]) !!}
+                                                <div class="form-group col-md-2">
+                                                    {!! Form::submit ('Delete', ['class'=>'btn btn-sm btn-danger']) !!}
+                                                </div>
+                                                {!! Form::close() !!}
+                                            @endif
                                             <div class="collapse" id="form-toggle{{$review->id}}">
                                                 {!! Form::open(['method'=>'POST', 'action'=>'ReviewRepliesController@store']) !!}
                                                 <div class="form-group">
@@ -126,6 +133,7 @@
                                                     {!! Form::submit ('Submit', ['class'=>'btn btn-primary']) !!}
                                                 </div>
                                                 {!! Form::close() !!}
+
                                             </div>
                                             @if($review->replies)
                                                 @foreach($review->replies as $reply)

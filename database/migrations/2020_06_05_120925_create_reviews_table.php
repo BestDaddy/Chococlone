@@ -20,7 +20,9 @@ class CreateReviewsTable extends Migration
             $table->string('comment');
             $table->timestamps();
 
-            $table->foreign('company_id')->refrences('id')->on('companies')->onDelete('cascade');
+            $table->foreign('company_id')->references('id')->on('companies')->onDelete('cascade');
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
+
         });
     }
 

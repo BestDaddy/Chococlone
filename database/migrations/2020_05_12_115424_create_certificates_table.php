@@ -20,6 +20,8 @@ class CreateCertificatesTable extends Migration
             $table->integer('discount')->unsigned();
             $table->integer('bought')->unsigned()->default(0);
             $table->timestamps();
+
+            $table->foreign('company_id')->references('id')->on('companies')->onDelete('cascade');
         });
     }
 

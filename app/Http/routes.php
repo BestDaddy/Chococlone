@@ -22,9 +22,9 @@ use Illuminate\Support\Facades\Input;
 
 Route::get('/', function () {
     $categories = Category::all();
-    $subcategories = Subcategory::all();
+//    $subcategories = Subcategory::all();
     $companies = Company::paginate(9);
-    return view('welcome',compact('categories', 'subcategories', 'companies'));
+    return view('welcome',compact('categories',  'companies'));
 });
 
 
@@ -35,12 +35,11 @@ Route::get('/getSub/{id}',  function ($id) {
 
 Route::get('/subcategory/{id}' , function ($id) {
     $categories = Category::all();
-    $subcategories = Subcategory::all();
     $companies = Company::query()
         ->where('subcategory_id', '=', "{$id}")
         ->paginate(9);
 
-    return view('welcome' , compact('categories', 'subcategories', 'companies'));
+    return view('welcome' , compact('categories',  'companies'));
 
 });
 
@@ -60,10 +59,13 @@ Route::auth();
 
 Route::group(['middleware'=>'auth'], function (){
     Route::resource('/user', 'UserOrdersController');
+    Route::delete('/details/delReview/{id}', 'CompanyReviewsController@destroy');
     Route::post('/details/addReply', 'ReviewRepliesController@store');
     Route::post('/details/addReview', 'CompanyReviewsController@store');
 });
 Route::group(['middleware'=>'admin'], function (){
+    Route::resource('/admin/category', 'AdminCategoriesController');
+    Route::resource('/admin/category/subcategory', 'AdminSubcategoriesController');
     Route::resource('/admin/company', 'AdminCompaniesController');
     Route::resource('/admin/company/certificate', 'AdminCertificatesController');
 

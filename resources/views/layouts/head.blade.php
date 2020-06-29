@@ -174,10 +174,10 @@
             <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown" role="button" aria-expanded="false" aria-haspopup="true">{{ $category->name }}</a>
                 <div class="dropdown-menu">
-                    @foreach($subcategories as $subcategory)
-                        @if($subcategory->category->id == $category->id)
-                            <a class="dropdown-item" href="{{ url('/subcategory/' .$subcategory->id) }}">{{$subcategory->name}} <small>{{count($subcategory->companies)}}</small></a>
-                        @endif
+                    @foreach($category->subcategories as $subcategory)
+
+                        <a class="dropdown-item" href="{{ url('/subcategory/' .$subcategory->id) }}">{{$subcategory->name}} <small>{{count($subcategory->companies)}}</small></a>
+
                     @endforeach
                 </div>
             </li>

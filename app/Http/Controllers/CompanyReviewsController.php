@@ -88,5 +88,10 @@ class CompanyReviewsController extends Controller
     public function destroy($id)
     {
         //
+        $review = Review::findOrFail($id);
+        $company_id = $review->company_id;
+        $review->delete();
+
+        return redirect('details/'.$company_id);
     }
 }

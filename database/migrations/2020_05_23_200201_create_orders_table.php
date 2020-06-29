@@ -18,6 +18,9 @@ class CreateOrdersTable extends Migration
             $table->integer('certificate_id')->index()->unsigned()->nulltabel();
             $table->integer('count')->unsigned()->default(1);
             $table->timestamps();
+
+            $table->foreign('certificate_id')->references('id')->on('certificates')->onDelete('cascade');
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
         });
     }
 

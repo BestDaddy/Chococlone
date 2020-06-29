@@ -108,6 +108,8 @@ class AdminCompaniesController extends Controller
     public function destroy($id)
     {
         //
+        Company::findOrFail($id)->delete();
+        return redirect('admin/company');
     }
 
 
